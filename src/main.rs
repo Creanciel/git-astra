@@ -6,15 +6,13 @@ mod astra_git;
 mod astra_git_path;
 
 use crate::{
-    astra_config::{create_config, load_config},
+    astra_config::{create_config, exist_config, load_config, AstraConfig},
     astra_const::ASTRA_CONFIG_FILE_NAME,
-    astra_error::AstraError,
+    astra_error::{AstraError, Result},
+    astra_getopts::getopts,
     astra_git::git_clone,
     astra_git_path::parse_git_path,
 };
-use astra_config::{exist_config, AstraConfig};
-use astra_error::Result;
-use astra_getopts::getopts;
 use std::env;
 
 fn main() -> Result<()> {

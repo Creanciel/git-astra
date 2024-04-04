@@ -4,14 +4,13 @@ use std::{
     path::PathBuf,
 };
 
-use serde::Deserialize;
-use serde_json::from_reader;
-
 use crate::{
-    astra_const,
+    astra_const::{self, ASTRA_CONFIG_TEMPLATE},
     astra_error::{AstraError, Result},
     astra_git_path::GitPathInfo,
 };
+use serde::Deserialize;
+use serde_json::from_reader;
 
 #[derive(Deserialize, Clone, Debug)]
 pub struct AstraConfigUser {
@@ -118,7 +117,7 @@ fn create_config_file(config_file: &PathBuf) -> bool {
         Err(_) => return false,
     };
 
-    file.write("{\n    \"list\": []\n}\n".as_bytes()).is_ok()
+    file.write(ASTRA_CONFIG_TEMPLATE.as_bytes()).is_ok()
 }
 
 #[allow(unused)]
