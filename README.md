@@ -69,7 +69,7 @@ git astra git@~
             "id": "creanciel",
             "user": {
                 "name": "Creanciel",
-                "mail": "creanciel@example.com"
+                "email": "creanciel@example.com"
             }
         },
         {
